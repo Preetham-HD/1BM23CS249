@@ -1,0 +1,158 @@
+#include<stdio.h>
+#include<stdlib.h>
+int stack[20];
+int top=-1;
+int N;
+void push(int n);
+int pop();
+void display();
+void main(){
+ int num,choice;
+ printf("enter the number of elements:");
+ scanf("%d",&N);
+ printf("enter the choice");
+ printf("\n1:push:");
+ printf("\n2.pop");
+ printf("\n3.display");
+ printf("\n4.exit");
+ scanf("%d",&choice);
+ while(choice!=4){
+  switch(choice){
+   case 1:{
+       printf("\nenter the element:");
+       scanf("%d",&num);
+       push(num);
+       display();
+    break;
+    }
+   case 2:{
+      int num1=pop();
+    printf("\nthe deleted element is : %d",num1); 
+    display();
+    break;
+}
+    case 3:{
+    display();
+    break;
+    }
+    case 4:{
+    break;
+    }
+    default: break;
+}
+  printf("\nenter the choice:");
+   scanf("%d",&choice);
+}
+
+}
+void push(int n){
+if(top==N-1){
+    printf("\nStack Overflow");
+}
+else{
+    stack[++top]=n;
+}
+}
+int pop(){
+    int ele;
+if(top==-1){
+    printf("\nStack Underflow");
+}
+else{
+    ele=stack[top--];
+
+}
+return ele;
+}
+void display(){
+    printf("\nthe stack elements are:");
+for(int i=top;i>=0;i--){
+    printf("\n %d",stack[i]);
+}
+}
+
+
+OUTPUT:
+enter the number of elements:3
+enter the choice
+1:push:
+2.pop
+3.display
+4.exit1
+
+enter the element:1
+
+the stack elements are:
+ 1
+enter the choice:1
+
+enter the element:2
+
+the stack elements are:
+ 2
+ 1
+enter the choice:1
+
+enter the element:3
+
+the stack elements are:
+ 3
+ 2
+ 1
+enter the choice:1
+
+enter the element:4
+
+Stack Overflow
+the stack elements are:
+ 3
+ 2
+ 1
+enter the choice:2
+
+the deleted element is : 3
+the stack elements are:
+ 2
+ 1
+enter the choice:2
+
+the deleted element is : 2
+the stack elements are:
+ 1
+enter the choice:2
+
+the deleted element is : 1
+the stack elements are:
+enter the choice:2
+
+Stack Underflow
+the deleted element is : 4214914
+the stack elements are:
+enter the choice:1
+
+enter the element:12
+
+the stack elements are:
+ 12
+enter the choice:1
+
+enter the element:15
+
+the stack elements are:
+ 15
+ 12
+enter the choice:1
+
+enter the element:17
+
+the stack elements are:
+ 17
+ 15
+ 12
+enter the choice:3
+
+the stack elements are:
+ 17
+ 15
+ 12
+enter the choice:4
