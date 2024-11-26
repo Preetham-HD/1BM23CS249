@@ -82,12 +82,12 @@ struct Node * delete_end(struct Node * start){
 struct Node *sort(struct Node* start){
     struct Node *curr=start;
     while(curr!=NULL){
-        struct Node* dup=curr;
-        while(dup->Next!=NULL){
-            if(dup->data>dup->Next->data){
+        struct Node* dup=curr->Next;
+        while(dup!=NULL){
+            if(curr->data>dup->data){
                 int temp=dup->data;
-                dup->data=dup->Next->data;
-                dup->Next->data=temp;
+                dup->data=curr->data;
+                curr->data=temp;
             }
             dup=dup->Next;
             }
@@ -139,7 +139,7 @@ void main(){
     display(start);
     struct Node *r=rev(start);
     display(r);
-    struct Node *con=concat(start,start1);
+    struct Node *con=concat(r,start1);
      display(con);
     
    
